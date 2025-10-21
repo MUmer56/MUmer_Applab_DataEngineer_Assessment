@@ -102,7 +102,7 @@ Total Customers = DISTINCTCOUNT(FactSales[customer_id])
 **Explanation:**
 Counts the total number of unique customers who made purchases.
 
-## Screenshot
-[Sales Dashboard View](Screenshots/PowerBI_Sales_dashboard_view.JPG)
+**Screenshot**
+![Sales Dashboard View](Screenshots/PowerBI_Sales_dashboard_view.JPG)
 
 ---
