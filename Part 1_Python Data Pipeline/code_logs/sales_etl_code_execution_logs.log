@@ -1,0 +1,76 @@
+2025-10-21 16:12:48 [INFO] ETL job started.
+2025-10-21 16:12:51 [INFO] Successfully connected to SalesDB.
+2025-10-21 16:12:57 [INFO] Loading input JSON file: sales_data.json
+2025-10-21 16:12:58 [INFO] Total records loaded: 1003
+2025-10-21 16:13:01 [INFO] Starting duplicate rows removal step.
+2025-10-21 16:13:01 [INFO] Dropped 2 exact duplicate rows.
+2025-10-21 16:13:01 [INFO] Remaining records after duplicate removal: 1001
+2025-10-21 16:13:05 [INFO] Starting 'transaction_id' cleaning step.
+2025-10-21 16:13:05 [INFO] Transaction IDs converted to string and stripped.
+2025-10-21 16:13:05 [INFO] Logged and dropped 5 rows with missing/blank transaction_id.
+2025-10-21 16:13:05 [INFO] Logged and dropped 1 duplicate transactionid + productid pairs rows.
+2025-10-21 16:13:05 [INFO] Remaining records after transaction_id cleaning: 995
+2025-10-21 16:13:06 [INFO] Starting 'customer_id' cleaning step.
+2025-10-21 16:13:06 [INFO] Total records after stripping whitespace: 995
+2025-10-21 16:13:06 [INFO] Replaced empty/placeholder values in 'customer_id' with None.
+2025-10-21 16:13:07 [INFO] Logged 17 records with missing customer_id before replacement.
+2025-10-21 16:13:07 [INFO] Number of records with missing customer_id replaced by Unknown: 17
+2025-10-21 16:13:07 [INFO] Total records after 'customer_id' cleaning: 995
+2025-10-21 16:13:08 [INFO] Starting 'product' columns cleaning steps.
+2025-10-21 16:13:08 [INFO] Logged 2 missing product_id rows.
+2025-10-21 16:13:08 [INFO] Number of records with missing product_id replaced with 'Unknown': 2
+2025-10-21 16:13:08 [INFO] Number of records with missing/invalid product name replaced with 'Unknown': 0
+2025-10-21 16:13:08 [INFO] Number of records with missing/invalid category replaced with 'Unknown': 0
+2025-10-21 16:13:08 [INFO] Logged 1 invalid/missing price rows.
+2025-10-21 16:13:08 [INFO] Replaced 1 negative price values with 0
+2025-10-21 16:13:08 [INFO] Total records after 'product' columns cleaning: 995
+2025-10-21 16:13:08 [INFO] Starting 'quantity' and 'discount' columns cleaning steps.
+2025-10-21 16:13:10 [INFO] Logged 514 bad quantity rows.
+2025-10-21 16:13:10 [INFO] Replaced 249 missing quantity values with 0
+2025-10-21 16:13:10 [INFO] Replaced 265 negative quantity values with 0
+2025-10-21 16:13:11 [INFO] Logged 334 bad discount rows.
+2025-10-21 16:13:11 [INFO] Replaced 168 missing discount values with 0
+2025-10-21 16:13:11 [INFO] Replaced 166 negative discount values with 0
+2025-10-21 16:13:11 [INFO] Total records after 'quantity & discounts' columns cleaning: 995
+2025-10-21 16:13:11 [INFO] Starting date column cleaning and parsing.
+2025-10-21 16:13:11 [INFO] Number of null/missing values in original 'date' column: 1
+2025-10-21 16:13:12 [INFO] Logged 1 missing/blank date rows to BadDataLog.
+2025-10-21 16:13:12 [INFO] Number of dates to replace with 19900101 due to missing/blank: 1
+2025-10-21 16:13:13 [INFO] Number of null values after parsing: 0
+2025-10-21 16:13:13 [INFO] Date column cleaning and parsing completed successfully.
+2025-10-21 16:13:13 [INFO] Starting 'region' data cleaning steps.
+2025-10-21 16:13:14 [INFO] Logged 175 missing region rows.
+2025-10-21 16:13:14 [INFO] Number of records with missing/invalid region replaced with 'Unknown': 335
+2025-10-21 16:13:14 [INFO] Total records after 'region' column cleaning: 995
+2025-10-21 16:13:14 [INFO] Starting incremental load for 'DimProduct'.
+2025-10-21 16:13:14 [INFO] Extracted 5 unique products from source dataframe.
+2025-10-21 16:13:14 [INFO] Applied type casting on product_df columns.
+2025-10-21 16:13:14 [INFO] Fetched 1 existing products from DimProduct.
+2025-10-21 16:13:14 [INFO] New: 5 | Updated: 0
+2025-10-21 16:13:14 [INFO] Inserted 5 new products.
+2025-10-21 16:13:14 [INFO] DimProduct incremental load committed successfully.
+2025-10-21 16:13:15 [INFO] Starting 'DimDate' population process...
+2025-10-21 16:13:16 [INFO] Generated DimDate DataFrame with 7670 from 2010-01-01 to 2030-12-31
+2025-10-21 16:13:16 [INFO] Populating DimDate table for the first time...
+2025-10-21 16:13:16 [INFO] Inserted 1000 of 7670 DimDate rows so far...
+2025-10-21 16:13:16 [INFO] Inserted 2000 of 7670 DimDate rows so far...
+2025-10-21 16:13:17 [INFO] Inserted 3000 of 7670 DimDate rows so far...
+2025-10-21 16:13:17 [INFO] Inserted 4000 of 7670 DimDate rows so far...
+2025-10-21 16:13:17 [INFO] Inserted 5000 of 7670 DimDate rows so far...
+2025-10-21 16:13:18 [INFO] Inserted 6000 of 7670 DimDate rows so far...
+2025-10-21 16:13:18 [INFO] Inserted 7000 of 7670 DimDate rows so far...
+2025-10-21 16:13:18 [INFO] Inserted 7670 of 7670 DimDate rows so far...
+2025-10-21 16:13:18 [INFO] DimDate population completed successfully.
+2025-10-21 16:13:18 [INFO] Inserted dates from 2010-01-01 to 2030-12-31
+2025-10-21 16:13:18 [INFO] Starting incremental 'FactSales' population process...
+2025-10-21 16:13:18 [INFO] FactSales DataFrame with 995 rows after dropping duplicates.
+2025-10-21 16:13:18 [INFO] No duplicate composite keys found in FactSales input data.
+2025-10-21 16:13:18 [INFO] Applied column type casting for FactSales DataFrame.
+2025-10-21 16:13:18 [INFO] Validating customer_id values against DimCustomer...
+2025-10-21 16:13:18 [INFO] Replaced non-existing customer_id values with 'Unknown'.
+2025-10-21 16:13:18 [INFO] Fetching existing (transaction_id, product_id) keys from FactSales...
+2025-10-21 16:13:18 [INFO] Fetched 0 existing FactSales records.
+2025-10-21 16:13:18 [INFO] 995 new FactSales records identified for insertion.
+2025-10-21 16:13:19 [INFO] Inserted 995 of 995 new FactSales rows so far...
+2025-10-21 16:13:19 [INFO] FactSales incremental load completed successfully.
+2025-10-21 16:13:35 [INFO] ETL process completed.

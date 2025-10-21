@@ -1,0 +1,42 @@
+PowerBI Sales Dashboard DAX Measures:
+
+1. 
+Total Sales = 
+SUMX(
+    FactSales,
+    FactSales[quantity] * RELATED(DimProduct[price])
+)
+
+2. 
+Average Sale per Transaction = 
+VAR NumTransactions =
+    DISTINCTCOUNT(FactSales[transaction_id])
+RETURN
+    DIVIDE([Total Sales], NumTransactions)
+
+3. 
+Total Loyalty Points = SUM(DimCustomer[loyalty_points])
+
+4.
+High Value Transactions (>1000) = 
+VAR TransactionTotals =
+    ADDCOLUMNS(
+        SUMMARIZE(FactSales, FactSales[transaction_id]),
+        "TransactionTotal",
+            SUMX(
+                FILTER(FactSales, FactSales[transaction_id] = EARLIER(FactSales[transaction_id])),
+                FactSales[quantity] * RELATED(DimProduct[price])
+            )
+    )
+RETURN
+COUNTROWS(FILTER(TransactionTotals, [TransactionTotal] > 1000))
+
+5.
+Sales YTD = 
+TOTALYTD(
+    [Total Sales],
+    DimDate[full_date]
+)
+
+6.
+Total Customers = DISTINCTCOUNT(FactSales[customer_id])

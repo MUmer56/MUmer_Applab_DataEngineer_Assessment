@@ -1,0 +1,3317 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/19/2025 2:21:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-V78D35K"
+  DTS:CreatorName="DESKTOP-V78D35K\Kashif Computers"
+  DTS:DTSID="{69BCF46F-9D09-4F64-8376-1702D7250783}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1008.3"
+  DTS:LocaleID="9216"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{B6E6F86D-399C-454C-8557-AC842257E0A9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB]"
+      DTS:CreationName="ADO.NET:System.Data.OleDb.OleDbConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{380D7288-6BE3-4A45-9111-C4BF4204213C}"
+      DTS:ObjectName="DESKTOP-V78D35K.SalesDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-V78D35K;Initial Catalog=SalesDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6E757369-8882-464B-84FC-A807E4268399}"
+      DTS:ObjectName="DESKTOP-V78D35K.SalesDB1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-V78D35K;Initial Catalog=SalesDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{6E757369-8882-464B-84FC-A807E4268399}DESKTOP-V78D35K.SalesDB1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB1 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{72B00F8C-2E89-4EF0-B889-A70E6FC2C7C7}"
+      DTS:ObjectName="DESKTOP-V78D35K.SalesDB1 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-V78D35K;Initial Catalog=SalesDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{72B00F8C-2E89-4EF0-B889-A70E6FC2C7C7}DESKTOP-V78D35K.SalesDB1 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{856A4AB8-9F82-444A-883A-568E1BB1C540}"
+      DTS:ObjectName="DESKTOP-V78D35K.SalesDB2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-V78D35K;Initial Catalog=SalesDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{856A4AB8-9F82-444A-883A-568E1BB1C540}DESKTOP-V78D35K.SalesDB2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42DEF71D-A5B8-444D-BD70-7572D8922A29}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CustomerFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Kashif Computers\3D Objects\APPLAB TEST\Part 3_SSIS Pipeline\customer_data.json</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1EBE7DFE-D5AD-41B6-B176-5842B62C329F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DatabaseName">
+      <DTS:VariableValue
+        DTS:DataType="8">SalesDB</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E44BA22-1ED2-499A-9DB5-ABE8EC0FF205}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ServerName">
+      <DTS:VariableValue
+        DTS:DataType="8">DESKTOP-V78D35K</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Customer JSON"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{47333AD5-712D-4391-9DCC-09971046A5CD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Customer JSON"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId)"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split (Drop Invalid CustomerId)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Inputs[Conditional Split Input].Columns[customerid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="customerid"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[ValidCustomerID]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ValidCustomerID"
+                  synchronousInputId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[LEN]([TRIM](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]})) &gt; 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(TRIM(customerid)) &gt; 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records)"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split (Identify Unchanged and Updated Records)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[loyaltypoints]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyaltypoints"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[Lookup_loyalty_points]"
+                      cachedDataType="i4"
+                      cachedName="Lookup_loyalty_points"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_loyalty_points]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[joindate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="joindate"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="email"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="customername"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[Lookup_customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Lookup_customer_name"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_customer_name]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[Lookup_email]"
+                      cachedDataType="wstr"
+                      cachedLength="320"
+                      cachedName="Lookup_email"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_email]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[Lookup_region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Lookup_region"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_region]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input].Columns[Lookup_join_date]"
+                      cachedDataType="i4"
+                      cachedName="Lookup_join_date"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_join_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[UpdateRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="UpdateRows"
+                  synchronousInputId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]} != #{Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_customer_name]} || #{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]} != #{Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_email]} || #{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]} != #{Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_region]} || (DT_I4)#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]} != (DT_I4)#{Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_join_date]} || (DT_I4)#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]} != (DT_I4)#{Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_loyalty_points]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">customername != Lookup_customer_name || email != Lookup_email || region != Lookup_region || (DT_I4)joindate != (DT_I4)Lookup_join_date || (DT_I4)loyaltypoints != (DT_I4)Lookup_loyalty_points</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column (Schema Enforemenet)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input].Columns[loyaltypoints]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyaltypoints"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)loyaltypoints</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input].Columns[joindate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="joindate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)joindate</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[SUBSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]},1,50)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(region,1,50)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="email"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[SUBSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]},1,320)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(email,1,320)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="customername"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[SUBSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]},1,255)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(customername,1,255)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input].Columns[customerid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="customerid"
+                      cachedSortKeyPosition="1"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[SUBSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]},1,50)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(customerid,1,50)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DerivedColumn (Data Cleaning &amp; Transformation)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="customername"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([ISNULL](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]}) || [LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]}) == 0) ? "Unknown" : ([LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]}) &gt; 255 ? [SUBSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]},1,255) : #{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(customername) || LEN(customername) == 0) ? "Unknown" : (LEN(customername) &gt; 255 ? SUBSTRING(customername,1,255) : customername)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([ISNULL](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]}) || [LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]}) == 0) ? "Unknown" : #{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(region) || LEN(region) == 0) ? "Unknown" : region</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="email"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([ISNULL](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]}) || [LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]}) == 0) ? "Unknown" : ([FINDSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]},"@",1) == 0 ? "invalid" : ([LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]}) &gt; 320 ? [SUBSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]},1,320) : #{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(email) || LEN(email) == 0) ? "Unknown" : (FINDSTRING(email,"@",1) == 0 ? "invalid" : (LEN(email) &gt; 320 ? SUBSTRING(email,1,320) : email))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input].Columns[loyaltypoints]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyaltypoints"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([ISNULL](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]}) || [LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]}) == 0) ? "0" : ((DT_I4)#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]} &lt; 0 ? "0" : #{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(loyaltypoints) || LEN(loyaltypoints) == 0) ? "0" : ((DT_I4)loyaltypoints &lt; 0 ? "0" : loyaltypoints)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input].Columns[joindate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="joindate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([ISNULL](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]}) || [LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]}) == 0 || [FINDSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]},"-",1) == 0 &amp;&amp; [FINDSTRING](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]},"/",1) == 0) ? "19900101" : ([LEN](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]}) &gt;= 10 ? [REPLACE]([REPLACE]([LEFT](#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]},10),"-",""),"/","") : "19900101")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(joindate) || LEN(joindate) == 0 || FINDSTRING(joindate,"-",1) == 0 &amp;&amp; FINDSTRING(joindate,"/",1) == 0) ? "19900101" : (LEN(joindate) &gt;= 10 ? REPLACE(REPLACE(LEFT(joindate,10),"-",""),"/","") : "19900101")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records)"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup (Identify New and Exisiting Records)"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimCustomer]) [refTable]
+where [refTable].[customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customer_id" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="email" dataType="DT_WSTR" length="320" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="region" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="join_date" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="loyalty_points" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="created_at" dataType="DT_WSTR" length="27" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="updated_at" dataType="DT_WSTR" length="27" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Inputs[Lookup Input].Columns[customerid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="customerid"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_customer_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_customer_id]"
+                      name="Lookup_customer_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_customer_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_customer_name]"
+                      name="Lookup_customer_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="320"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_email]"
+                      name="Lookup_email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">email</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_region]"
+                      name="Lookup_region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">region</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_join_date]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_join_date]"
+                      name="Lookup_join_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">join_date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_loyalty_points]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output].Columns[Lookup_loyalty_points]"
+                      name="Lookup_loyalty_points"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">loyalty_points</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0)"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command (Update Exisiting Customers SCD0)"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE dbo.DimCustomer
+SET
+    customer_name = ?,
+    email = ?,
+    region = ?,
+    join_date = ?,
+    loyalty_points = ?
+WHERE customer_id = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB2]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="customername"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].Columns[joindate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="joindate"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].Columns[loyaltypoints]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyaltypoints"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].Columns[customerid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="customerid"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="320"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer)"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination (Insert New Customer)"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-V78D35K.SalesDB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].Columns[customerid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="customerid"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="customername"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].Columns[joindate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="joindate"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[join_date]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]" />
+                    <inputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].Columns[loyaltypoints]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyaltypoints"
+                      externalMetadataColumnId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[loyalty_points]"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="320"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      dataType="wstr"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[join_date]"
+                      dataType="i4"
+                      name="join_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[loyalty_points]"
+                      dataType="i4"
+                      name="loyalty_points" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[created_at]"
+                      dataType="wstr"
+                      length="27"
+                      name="created_at" />
+                    <externalMetadataColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input].ExternalColumns[updated_at]"
+                      dataType="wstr"
+                      length="27"
+                      name="updated_at" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\Script (Load Customer JSON File)"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Script (Load Customer JSON File)"
+              version="13">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="39">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public Output0Buffer Output0Buffer;
+
+    public virtual void FinishOutputs()
+    {
+    }
+
+    private void MarkOutputsFinished()
+    {
+
+        if (null != Output0Buffer)
+        {
+            Output0Buffer.SetEndOfRowset();
+            Output0Buffer = null;
+        }
+
+    }
+
+    public override void PrimeOutput(int Outputs, int[] OutputIDs, PipelineBuffer[] Buffers, OutputNameMap OutputMap)
+    {
+       for(int Idx = 0; Idx < Outputs; Idx++)
+       {
+            if(OutputIDs[Idx] == GetOutputID(OutputMap, @"Output 0"))
+            {
+                Output0Buffer = new Output0Buffer(Buffers[Idx], GetColumnIndexes(OutputIDs[Idx]), OutputMap);
+            }
+        }
+
+        CreateNewOutputRows();
+
+        FinishOutputs();
+        MarkOutputsFinished();
+
+    }
+
+    public virtual void CreateNewOutputRows()
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+    public String CustomerFilePath
+    {
+        get
+        {
+            return (String)(ParentComponent.ReadOnlyVariables["CustomerFilePath"].GetValueWithContext(ScriptComponent.EvaluatorContext));
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+using SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Web.Script.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+
+    public override void CreateNewOutputRows()
+        {
+            // Get JSON file path from SSIS variable
+            string filePath = Variables.CustomerFilePath;
+
+            if (!System.IO.File.Exists(filePath))
+                throw new Exception($"Customer JSON file not found at {filePath}");
+
+            // Read the JSON file
+            string jsonFileContent = System.IO.File.ReadAllText(filePath);
+
+            // Deserialize using JavaScriptSerializer
+            System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
+            List<Customer> customers = js.Deserialize<List<Customer>>(jsonFileContent);
+
+            // Loop through each customer and add a row
+            foreach (Customer obj2 in customers)
+            {
+                Output0Buffer.AddRow();
+
+                // Assign values safely; use empty string or "0" for nulls
+                Output0Buffer.customerid    = obj2.customer_id ?? "";
+                Output0Buffer.customername  = obj2.customer_name ?? "";
+                Output0Buffer.email         = obj2.email ?? "";
+                Output0Buffer.region        = obj2.region ?? "";
+                Output0Buffer.joindate      = obj2.join_date ?? "";
+                Output0Buffer.loyaltypoints = obj2.loyalty_points ?? "0";
+
+                // Optional: add more columns if needed
+                // Output0Buffer.isactive = obj2.is_active ?? "0";
+            }
+        }
+
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Output0Buffer: ScriptBuffer
+
+{
+    public Output0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String loyaltypoints
+    {
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool loyaltypoints_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String joindate
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool joindate_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String region
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool region_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String email
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool email_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String customername
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool customername_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String customerid
+    {
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool customerid_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public void AddRow()
+    {
+        base.AddRow();
+    }
+
+    new public void SetEndOfRowset()
+    {
+        base.SetEndOfRowset();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties.Settings.get_Default():SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties.Sett" +
+    "ings")]
+
+namespace SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Customer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties
+{
+    class Customer
+    {
+        public string customer_id { get; set; }
+        public string customer_name { get; set; }
+        public string email { get; set; }
+        public string region { get; set; }
+        public string join_date { get; set; }
+        public string loyalty_points { get; set; }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_3de0b9ecf5d54c06b8750e9f7447a80e.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{075E9802-DF55-436A-9F79-AD6BE7117E26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_3de0b9ecf5d54c06b8750e9f7447a80e</RootNamespace>
+    <AssemblyName>SC_3de0b9ecf5d54c06b8750e9f7447a80e</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>C:\Users\Kashif Computers\AppData\Local\Temp\Vsta\SSIS_SC160\Vstal_kDg3efbkejow0wG48PNg\packages\Newtonsoft.Json.Bson.1.0.3\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Customer.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_3de0b9ecf5d54c06b8750e9f7447a80e</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_3de0b9ecf5d54c06b8750e9f7447a80e</msb:DisplayName>
+    <msb:ProjectId>{3F91D872-BA19-4438-BCAF-944C22F02DA8}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_3de0b9ecf5d54c06b8750e9f7447a80e.csproj" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Customer.cs" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="packages.config" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_3de0b9ecf5d54c06b8750e9f7447a80e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_3de0b9ecf5d54c06b8750e9f7447a80e")]
+[assembly: AssemblyCopyright("Copyright @  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_3de0b9ecf5d54c06b8750e9f7447a80e.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[packages.config]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="Newtonsoft.Json" version="13.0.4" targetFramework="net47" />
+</packages>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Newtonsoft\Json\JsonConvert.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System;
+using System.Collections.Generic;
+
+namespace Newtonsoft.Json
+{
+    internal class JsonConvert
+    {
+        internal static IEnumerable<object> DeserializeObject<T>(string jsonText)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_3de0b9ecf5d54c06b8750e9f7447a80e.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDABFQ9mgAAAAAAAAAAOAAIiALATAAAB4AAAAIAAAAAAAA0jwA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIA8AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA2BwAAAAgAAAAHgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAgAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAJgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC0
+PAAAAAAAAEgAAAACAAUAHCQAAKwXAAABAAAAAAAAAMg7AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACiobMAMADgEAAAEAABECewIAAARv
+HAAABgoGKBIAAAotEXIBAABwBigTAAAKcxQAAAp6BigVAAAKC3MWAAAKB28BAAArbxgAAAoMOK8A
+AAASAigZAAAKDQJ7AwAABG8SAAAGAnsDAAAECW8dAAAGJS0GJnJDAABwbxAAAAYCewMAAAQJbx8A
+AAYlLQYmckMAAHBvDgAABgJ7AwAABAlvIQAABiUtBiZyQwAAcG8MAAAGAnsDAAAECW8jAAAGJS0G
+JnJDAABwbwoAAAYCewMAAAQJbyUAAAYlLQYmckMAAHBvCAAABgJ7AwAABAlvJwAABiUtBiZyRQAA
+cG8GAAAGEgIoGgAACjpF////3g4SAv4WAgAAG28bAAAK3CoAAAEQAAACAD0Awv8ADgAAAAAeAigV
+AAAGKioCAwQFKBwAAAoqJgIWAygdAAAKKloDLAgCFigeAAAKKnJJAABwcx8AAAp6JgIXAygdAAAK
+KloDLAgCFygeAAAKKnJJAABwcx8AAAp6JgIYAygdAAAKKloDLAgCGCgeAAAKKnJJAABwcx8AAAp6
+JgIZAygdAAAKKloDLAgCGSgeAAAKKnJJAABwcx8AAAp6JgIaAygdAAAKKloDLAgCGigeAAAKKnJJ
+AABwcx8AAAp6JgIbAygdAAAKKloDLAgCGygeAAAKKnJJAABwcx8AAAp6HgIoIAAACioeAighAAAK
+Kh4CKCIAAAoqfgIoIwAACgICcxoAAAZ9AQAABAICcxsAAAZ9AgAABCoGKm4CewMAAAQsEgJ7AwAA
+BG8TAAAGAhR9AwAABCoAEzAFAEkAAAACAAARFgorLgQGlA4EcuYAAHAoJAAACjMZAgUGmgIEBpQo
+JQAACg4EcwUAAAZ9AwAABAYXWAoGAzLOAm8ZAAAGAm8WAAAGAigXAAAGKjoCKCYAAAoCA30EAAAE
+KjoCKCYAAAoCA30FAAAEKpYCewUAAARvJwAACnL4AABwbygAAAooKQAACm8qAAAKdB8AAAEqHgJ7
+BgAABCoiAgN9BgAABCoeAnsHAAAEKiICA30HAAAEKh4CewgAAAQqIgIDfQgAAAQqHgJ7CQAABCoi
+AgN9CQAABCoeAnsKAAAEKiICA30KAAAEKh4CewsAAAQqIgIDfQsAAAQqHgIoJgAACiqufgwAAAQt
+HnIaAQBw0AgAAAIoKwAACm8sAAAKcy0AAAqADAAABH4MAAAEKhp+DQAABCoeAoANAAAEKhp+DgAA
+BCoeAiguAAAKKi5zLwAABoAOAAAEKgAAAEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUA
+bAAAAGAJAAAjfgAAzAkAADwKAAAjU3RyaW5ncwAAAAAIFAAAjAEAACNVUwCUFQAAEAAAACNHVUlE
+AAAApBUAAAgCAAAjQmxvYgAAAAAAAAACAAABVxWiCQkJAAAA+gEzABYAAAEAAAAqAAAACQAAAA4A
+AAAwAAAAHAAAAC4AAAAiAAAAAgAAAAUAAAAWAAAAHQAAAAIAAAABAAAABwAAAAEAAAABAAAAAADe
+BAEAAAAAAAYAowNLBwYANwRLBwYA7wI4Bw8AvwcAAAYAHAMcBgYAhgMcBgYAZwMcBgYAHgQcBgYA
+wwMcBgYA3AMcBgYAMwMcBgYATgN+BAoA9wMLAg4ALAkTCDsAHAoAAAYAOgBpAEMAFgcAAAoArAYL
+AhIAnQYLAgoAVAYLAgoAXQkLAgYACgmeBQYAtwJLBwYA0gI4BwYAvQZrBwYASAbnBRYAogK0BBYA
+AwO0BBYAWQLSBQYA0QFWAAYAmASeBQYAPgaeBRoA/gb8BQYAoQGeBQYALgaeBR4AEQDWBh4AAQDW
+BlcA7AkAAB4AIgDWBgYALAKeBQYArQGeBQYAMAocBgAAAABBAAAAAAABAAEAAQAQALEFAAAQAAEA
+AQABABAAjwYAAEkAAQAFAAEAEAA/CQAAVQABABUAAQAQAI4IAABZAAQAGgABABAACQgAAFkABQAb
+AAAAEADNBs4HWQAGAB0AAAAQAHIHzgdZAAwAKgAAARAAWgjOB3UADgAuAAYAjgjVAAYACQjZAAYA
+jwbdAAEATQnhAAEATQnhAAEAxwDlAAEA5ADlAAEAHgHlAAEANQHlAAEAAwHlAAEATQHlABEApQXo
+ABEASQLsABEAkQHwAFAgAAAAAMYAVQQGAAEAWCAAAAAAxgBgBAYAAQBgIAAAAADGAO8IBgABAIwh
+AAAAAIYYIQcGAAEAlCEAAAAAhhghB2gAAQCfIQAAAACGCMgIEAAEAKkhAAAAAIYIawX0AAUAwCEA
+AAAAhgiVAhAABgDKIQAAAACGCDQF9AAHAOEhAAAAAIYIxwUQAAgA6yEAAAAAhghZBfQACQACIgAA
+AACGCNQEEAAKAAwiAAAAAIYISAX0AAsAIyIAAAAAhgj6ARAADAAtIgAAAACGCBwF9AANAEQiAAAA
+AIYIuAAQAA4ATiIAAAAAhggGBfQADwBlIgAAAACGACUKBgAQAG0iAAAAAIYAEQkGABAAdSIAAAAA
+hgAUCWQAEAB9IgAAAACGGCEHBgAQAJ0iAAAAAMYB4QgGABAAnyIAAAAAgQCEAAYAEAC8IgAAAADG
+ALcJ+QAQAJ0iAAAAAMYB7wgGABQAESMAAAAAhhghBwUBFAAgIwAAAACGGCEHBQEVAC8jAAAAAIYI
+nwQLARYAVSMAAAAAhgiYAAsBFgBdIwAAAACGCKgAEAAWAGYjAAAAAIYI1gELARcAbiMAAAAAhgjo
+ARAAFwB3IwAAAACGCMoECwEYAH8jAAAAAIYI1AQQABgAiCMAAAAAhgi8BQsBGQCQIwAAAACGCMcF
+EAAZAJkjAAAAAIYIeQILARoAoSMAAAAAhgiHAhAAGgCqIwAAAACGCKIICwEbALIjAAAAAIYItQgQ
+ABsAuyMAAAAAhhghBwYAHAC7IwAAAACDGCEHBgAcAMMjAAAAAJMIuQYPARwA7yMAAAAAkwgxAhQB
+HAD2IwAAAACTCD0CGQEcAP4jAAAAAJYIIAkfAR0ABSQAAAAAhhghBwYAHQANJAAAAACRGCcHJAEd
+AAAAAQCyBgAAAgA1CAAAAwBiBgAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAA
+AQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQDnCAAAAgAuBwAAAwCaCAAABABi
+BgAAAQBjCQAAAQBjCQAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAAAAQBsBAkA
+IQcBABEAIQcGABkAIQcKACkAIQcQADEAIQcQADkAIQcQAEEAIQcQAEkAIQcQAFEAIQcQAFkAIQcQ
+AGEAIQcQAGkAIQcGALkAIQcGAMEAIQcGAOEAIQcVAKkAVQQGAKkAYAQGAPEA2ggoAPkAAwktAAEB
+IQcQAPEAzAkzAAkBIQcGAAkBcgQ4AAwAEwdPABQAbQlfABQAwwlkABEBcQIGAJEAIQdoAJEAlQVy
+AJEAhAUBABkBIQcQAJEAJQoGAJEAEQkGAJEAFAlkAKkAIQcGAKkASgB8AKkASQiDALEAIQcGAKkA
+/QeJACEBjAWPAKkABwqWACkB2AmcAEEBvwGjAEEBLAqsAMkAIQeyAOkAIQcGAC4ACwA/AS4AEwBI
+AS4AGwBnAS4AIwBwAS4AKwCZAS4AMwCZAS4AOwCZAS4AQwBwAS4ASwCfAS4AUwCZAS4AWwC2AUMA
+YwAAAsEAawAAAuEAawAAAgEBawAAAgMBcwAAAiEBawAAAkEBawAAAmEBawAAAsEBawAAAokCewBn
+AakCewBnAaADawAAAsADawAAAuADawAAAgAEawAAAiAEawAAAkAEawAAAmAEawAAAoAEawAAAqAE
+awAAAsAEawAAAuAEawAAAgAFawAAAhsAeAADAAEABgANAAcADgAIABQACQAWAAAAzAgoAQAAbwUs
+AQAAmQIoAQAAOAUsAQAAywUoAQAAXQUsAQAA2AQoAQAATAUsAQAA/gEoAQAAIAUsAQAAvAAoAQAA
+CgUsAQAAowQoAQAArAAoAQAA7AEoAQAA2AQoAQAAywUoAQAAiwIoAQAAuQgoAQAAvQYwAQAAUQI1
+AQAAJAk6AQEABgADAAEABwAFAAEACAAHAAEACQAJAAEACgALAAEACwANAAEADAAPAAEADQARAAEA
+DgATAAEADwAVAAEAEAAXAAEAEQAZAAIAHAAbAAIAHQAdAAEAHgAdAAIAHwAfAAEAIAAfAAIAIQAh
+AAEAIgAhAAIAIwAjAAEAJAAjAAIAJQAlAAEAJgAlAAIAJwAnAAEAKAAnAAIAKwApAAIALAArAAEA
+LQArAAIALgAtAEgAWAAEgAAAAQAAAAAAAAAAAAAAAABtAQAABAAAAAAAAAAAAAAAugBgAAAAAAAQ
+AAAAAAAAAAAAAADDAHkJAAAAAAQAAAAAAAAAAAAAALoAYwgAAAAAEAAAAAAAAAAAAAAAwwCWCQAA
+AAAEAAAAAAAAAAAAAAC6AJ4FAAAAAAQAAAAAAAAAAAAAAMwAeAgAAAAAEAAAAAAAAAAAAAAAwwBs
+BgAAAAAAAAAAAQAAAHwHAAAvAD8AAAAAAABJRFRTVmFyaWFibGUxMDAASURUU1ZhcmlhYmxlczEw
+MABJRFRTRXZhbHVhdG9yQ29udGV4dDEwMABMaXN0YDEAPE1vZHVsZT4AR2V0T3V0cHV0SUQAU3lz
+dGVtLklPAG1zY29ybGliAFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljAE1hcmtPdXRwdXRzRmlu
+aXNoZWQAZ2V0X2N1c3RvbWVyX2lkAHNldF9jdXN0b21lcl9pZABzZXRfY3VzdG9tZXJpZAA8Y3Vz
+dG9tZXJfaWQ+a19fQmFja2luZ0ZpZWxkADxjdXN0b21lcl9uYW1lPmtfX0JhY2tpbmdGaWVsZAA8
+am9pbl9kYXRlPmtfX0JhY2tpbmdGaWVsZAA8ZW1haWw+a19fQmFja2luZ0ZpZWxkADxyZWdpb24+
+a19fQmFja2luZ0ZpZWxkADxsb3lhbHR5X3BvaW50cz5rX19CYWNraW5nRmllbGQAU0NfM2RlMGI5
+ZWNmNWQ1NGMwNmI4NzUwZTlmNzQ0N2E4MGUAZGVmYXVsdEluc3RhbmNlAElEaXNwb3NhYmxlAFJ1
+bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAEZpbGUAZ2V0X2N1c3RvbWVyX25hbWUA
+c2V0X2N1c3RvbWVyX25hbWUAc2V0X2N1c3RvbWVybmFtZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0
+cy5QaXBlbGluZQBUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBB
+cHBsaWNhdGlvblNldHRpbmdzQmFzZQBEaXNwb3NlAGdldF9qb2luX2RhdGUAc2V0X2pvaW5fZGF0
+ZQBzZXRfam9pbmRhdGUARWRpdG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRy
+aWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVk
+aXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJh
+ZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3Vy
+YXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJl
+bGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHly
+aWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3Nl
+bWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhl
+Y3V0ZQBQb3N0RXhlY3V0ZQB2YWx1ZQBEZXNlcmlhbGl6ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9u
+aW5nAFN0cmluZwBnZXRfQ3VzdG9tZXJGaWxlUGF0aABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAZ2V0
+X2VtYWlsAHNldF9lbWFpbABTQ18zZGUwYjllY2Y1ZDU0YzA2Yjg3NTBlOWY3NDQ3YTgwZS5kbGwA
+c2V0X2N1c3RvbWVyaWRfSXNOdWxsAHNldF9jdXN0b21lcm5hbWVfSXNOdWxsAHNldF9qb2luZGF0
+ZV9Jc051bGwAc2V0X2VtYWlsX0lzTnVsbABzZXRfcmVnaW9uX0lzTnVsbABzZXRfbG95YWx0eXBv
+aW50c19Jc051bGwAU2V0TnVsbABnZXRfSXRlbQBzZXRfSXRlbQBTeXN0ZW0AcmVzb3VyY2VNYW4A
+U2NyaXB0TWFpbgBnZXRfcmVnaW9uAHNldF9yZWdpb24AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lz
+dGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLldlYi5TY3JpcHQuU2VyaWFsaXphdGlvbgBTeXN0ZW0u
+UmVmbGVjdGlvbgBJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAEN1bHR1cmVJbmZvAE91dHB1dE5h
+bWVNYXAAT3V0cHV0TWFwAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRFRTUnVudGltZVdyYXAAT3V0cHV0
+MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgBD
+dXN0b21lcgBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lLldyYXBwZXIASmF2YVNjcmlw
+dFNlcmlhbGl6ZXIAR2V0RW51bWVyYXRvcgAuY3RvcgAuY2N0b3IAT3V0cHV0SURzAFN5c3RlbS5E
+aWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJj
+ZXMAU0NfM2RlMGI5ZWNmNWQ1NGMwNmI4NzUwZTlmNzQ0N2E4MGUuUHJvcGVydGllcy5SZXNvdXJj
+ZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDXzNkZTBiOWVjZjVkNTRjMDZiODc1MGU5Zjc0
+NDdhODBlLlByb3BlcnRpZXMAZ2V0X1JlYWRPbmx5VmFyaWFibGVzAFN5c3RlbS5XaW5kb3dzLkZv
+cm1zLlZpc3VhbFN0eWxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMAU2V0
+dGluZ3MAU3lzdGVtLldpbmRvd3MuRm9ybXMAU3lzdGVtLldlYi5FeHRlbnNpb25zAENvbm5lY3Rp
+b25zAEJ1ZmZlcnMAZ2V0X2xveWFsdHlfcG9pbnRzAHNldF9sb3lhbHR5X3BvaW50cwBzZXRfbG95
+YWx0eXBvaW50cwBFeGlzdHMARmluaXNoT3V0cHV0cwBDcmVhdGVOZXdPdXRwdXRSb3dzAENvbmNh
+dABPYmplY3QAU2V0RW5kT2ZSb3dzZXQAZ2V0X0RlZmF1bHQAVmlzdWFsU3R5bGVFbGVtZW50AFVz
+ZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABnZXRfQ3VycmVudABN
+aWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVI
+b3N0AFByaW1lT3V0cHV0AE1vdmVOZXh0AFJlYWRBbGxUZXh0AEdldFZhbHVlV2l0aENvbnRleHQA
+U2NyaXB0Q29tcG9uZW50RXZhbENvbnRleHQAZ2V0X0V2YWx1YXRvckNvbnRleHQATGlzdFZpZXcA
+QWRkUm93AGdldF9Bc3NlbWJseQAAAAAAQUMAdQBzAHQAbwBtAGUAcgAgAEoAUwBPAE4AIABmAGkA
+bABlACAAbgBvAHQAIABmAG8AdQBuAGQAIABhAHQAIAAAAQADMAAAgJtJAHMATgB1AGwAbAAgAHAA
+cgBvAHAAZQByAHQAeQAgAGMAYQBuAG4AbwB0ACAAYgBlACAAcwBlAHQAIAB0AG8AIABGAGEAbABz
+AGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABlACAAYwBvAGwA
+dQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AABFPAHUAdABwAHUAdAAgADAAACFDAHUAcwB0AG8AbQBl
+AHIARgBpAGwAZQBQAGEAdABoAABxUwBDAF8AMwBkAGUAMABiADkAZQBjAGYANQBkADUANABjADAA
+NgBiADgANwA1ADAAZQA5AGYANwA0ADQANwBhADgAMABlAC4AUAByAG8AcABlAHIAdABpAGUAcwAu
+AFIAZQBzAG8AdQByAGMAZQBzAAC4td8hYz5SQLAfmHVCtze0AAQgAQEIAyAAAQUgAQEREQQgAQEO
+BSABARFtDAcEDg4VEUUBEhwSHAQAAQIOBQACDg4OBAABDg4GMAEBHgAOCAoBFRJBARIcBhUSQQES
+HAggABURRQETAAYVEUUBEhwEIAATAAMgAAIJIAMBEk0dCBJRBSACAQgcAwcBCAYAAggSUQ4FIAEd
+CAgFIAASgJEGIAESgJUcBQAAEoCZBiABHBKAnQgAARKAoRGApQUgABKAqQcgAgEOEoCpCLd6XFYZ
+NOCJCImEXc2AgMyRCDG/OFatNk41AwYSFAMGEhgDBhIMAwYSVQIGDgMGEmUDBhJpAwYSJAQgAQEC
+CyAEAQgdCB0STRJRBSABARJVAyAADgQAABJlBAAAEmkFAAEBEmkEAAASJAMAAAEDKAAOAygAAgQI
+ABJlBAgAEmkECAASJAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQAC
+AAAAAAAoAQAjU0NfM2RlMGI5ZWNmNWQ1NGMwNmI4NzUwZTlmNzQ0N2E4MGUAAAUBAAAAABYBABFD
+b3B5cmlnaHQgQCAgMjAyNQAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC43AQBUDhRGcmFt
+ZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjcEAQAAAAAAALQAAADOyu++AQAAAJEA
+AABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4w
+LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5
+c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAACo
+PAAAAAAAAAAAAADCPAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtDwAAAAAAAAAAAAAAABfQ29y
+RGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+EAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABY
+QAAA7AMAAAAAAAAAAAAA7AM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E
+7/4AAAEAAAABAAAAAAAAAAEAAAAAAD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBW
+AGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAA
+AACwBEwDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAACgDAAABADAAMAAwADAAMAA0
+AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5AE4A
+YQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBD
+AF8AMwBkAGUAMABiADkAZQBjAGYANQBkADUANABjADAANgBiADgANwA1ADAAZQA5AGYANwA0ADQA
+NwBhADgAMABlAAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAw
+AAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwAzAGQAZQAwAGIAOQBlAGMA
+ZgA1AGQANQA0AGMAMAA2AGIAOAA3ADUAMABlADkAZgA3ADQANAA3AGEAOAAwAGUALgBkAGwAbAAA
+AEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAA
+QAAgACAAMgAwADIANQAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUAbQBhAHIAawBzAAAAAAAA
+AAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAQwBfADMAZABlADAA
+YgA5AGUAYwBmADUAZAA1ADQAYwAwADYAYgA4ADcANQAwAGUAOQBmADcANAA0ADcAYQA4ADAAZQAu
+AGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAEMAXwAzAGQAZQAwAGIA
+OQBlAGMAZgA1AGQANQA0AGMAMAA2AGIAOAA3ADUAMABlADkAZgA3ADQANAA3AGEAOAAwAGUAAAA0
+AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAOAAIAAEA
+QQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAANQ8AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_3de0b9ecf5d54c06b8750e9f7447a80e</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::CustomerFilePath</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">4E</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0]"
+                  hasSideEffects="true"
+                  name="Output 0">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[loyaltypoints]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[loyaltypoints]"
+                      name="loyaltypoints" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[joindate]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[joindate]"
+                      name="joindate" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[region]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[email]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customername]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customername]"
+                      name="customername" />
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customerid]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customerid]"
+                      name="customerid" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\Sort (CustomerId Dedup)"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort (CustomerId Dedup)"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input].Columns[loyaltypoints]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyaltypoints"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[loyaltypoints]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input].Columns[joindate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="joindate"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[joindate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="email"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="customername"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customername]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input].Columns[customerid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="customerid"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customerid]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[loyaltypoints]"
+                      name="loyaltypoints">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[loyaltypoints]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[joindate]"
+                      name="joindate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[joindate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[region]"
+                      name="region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[email]"
+                      name="email">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[email]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customername]"
+                      name="customername">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customername]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output].Columns[customerid]"
+                      name="customerid"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customerid]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Customer JSON\Sort (Full Row Dedup)"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort (Full Row Dedup)"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input].Columns[loyaltypoints]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyaltypoints"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[loyaltypoints]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input].Columns[joindate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="joindate"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[joindate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input].Columns[region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="region"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="email"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="customername"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customername]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input].Columns[customerid]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="customerid"
+                      lineageId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customerid]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[loyaltypoints]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[loyaltypoints]"
+                      name="loyaltypoints"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[loyaltypoints]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[joindate]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[joindate]"
+                      name="joindate"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[joindate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[region]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[region]"
+                      name="region"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[email]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[email]"
+                      name="email"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[email]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customername]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customername]"
+                      name="customername"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customername]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customerid]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output].Columns[customerid]"
+                      name="customerid"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0].Columns[customerid]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Customer JSON.Paths[Derived Column Output]"
+              endId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[Derived Column Output1]"
+              endId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[Lookup Match Output]"
+              endId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[Lookup No Match Output]"
+              endId="Package\Load Customer JSON\OLE DB Destination (Insert New Customer).Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records).Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[Output 0]"
+              endId="Package\Load Customer JSON\Sort (Full Row Dedup).Inputs[Sort Input]"
+              name="Output 0"
+              startId="Package\Load Customer JSON\Script (Load Customer JSON File).Outputs[Output 0]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[Sort Output]"
+              endId="Package\Load Customer JSON\Sort (CustomerId Dedup).Inputs[Sort Input]"
+              name="Sort Output"
+              startId="Package\Load Customer JSON\Sort (Full Row Dedup).Outputs[Sort Output]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[Sort Output1]"
+              endId="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation).Inputs[Derived Column Input]"
+              name="Sort Output"
+              startId="Package\Load Customer JSON\Sort (CustomerId Dedup).Outputs[Sort Output]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[UpdateRows]"
+              endId="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0).Inputs[OLE DB Command Input]"
+              name="UpdateRows"
+              startId="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records).Outputs[UpdateRows]" />
+            <path
+              refId="Package\Load Customer JSON.Paths[ValidCustomerID]"
+              endId="Package\Load Customer JSON\Derived Column (Schema Enforemenet).Inputs[Derived Column Input]"
+              name="ValidCustomerID"
+              startId="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId).Outputs[ValidCustomerID]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Load Customer JSON"
+          TopLeft="227.499987569949,143.866665666236" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Customer JSON">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="335.2,41.6"
+          Id="Package\Load Customer JSON\OLE DB Command (Update Exisiting Customers SCD0)"
+          TopLeft="34.5454526579742,739.309087559346" />
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\Load Customer JSON\Script (Load Customer JSON File)"
+          TopLeft="277.499984838069,45.0666663532787" />
+        <NodeLayout
+          Size="308,41.6"
+          Id="Package\Load Customer JSON\DerivedColumn (Data Cleaning &amp; Transformation)"
+          TopLeft="243.409077609805,315.151512959991" />
+        <NodeLayout
+          Size="275.2,41.6"
+          Id="Package\Load Customer JSON\Conditional Split (Drop Invalid CustomerId)"
+          TopLeft="265.681803665604,397.799997233749" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Load Customer JSON\Sort (CustomerId Dedup)"
+          TopLeft="297.878771603409,227.303028722394" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Load Customer JSON\Sort (Full Row Dedup)"
+          TopLeft="306.969680197613,136.775756624636" />
+        <NodeLayout
+          Size="278.4,41.6"
+          Id="Package\Load Customer JSON\OLE DB Destination (Insert New Customer)"
+          TopLeft="447.575733121298,657.454542134387" />
+        <NodeLayout
+          Size="356.8,41.6"
+          Id="Package\Load Customer JSON\Conditional Split (Identify Unchanged and Updated Records)"
+          TopLeft="20.6818170518135,657.521208144143" />
+        <NodeLayout
+          Size="263.2,41.6"
+          Id="Package\Load Customer JSON\Derived Column (Schema Enforemenet)"
+          TopLeft="274.924227403045,482.654542098226" />
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[ValidCustomerID]"
+          TopLeft="404.903015534324,439.399997233749">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2545448644769"
+              Start="0,0"
+              End="0,35.7545448644769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7545448644769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.82439453125,13.0027607134884,75.6487890625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[UpdateRows]"
+          TopLeft="200.613634854894,699.121208144143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.1878794152026"
+              Start="0,0"
+              End="0,32.6878794152026">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.6878794152026" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.0765234375,10.5392522076013,56.153046875,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[Sort Output1]"
+          TopLeft="396.243924606607,268.903028722394">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.2484842375971"
+              Start="0,0"
+              End="0,38.7484842375971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.7484842375971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[Sort Output]"
+          TopLeft="396.224225900511,178.375756624636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.9272720977579"
+              Start="0,0"
+              End="0,41.4272720977579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.4272720977579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[Output 0]"
+          TopLeft="396.434832517841,86.6666663532787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.1090902713573"
+              Start="0,0"
+              End="0,42.6090902713573">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.6090902713573" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[Derived Column Output]"
+          TopLeft="400.345440637704,356.751512959991">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.048484273758"
+              Start="0,0"
+              End="0,33.548484273758">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.548484273758" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="282.4,41.6"
+          Id="Package\Load Customer JSON\Lookup (Identify New and Exisiting Records)"
+          TopLeft="265.227258235894,573.242420790225" />
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[Derived Column Output1]"
+          TopLeft="406.475742819469,524.254542098226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.987878691999"
+              Start="0,0"
+              End="0,41.487878691999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.487878691999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[Lookup Match Output]"
+          TopLeft="360.693924902561,614.842420790225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-161.612107850747,42.6787873539184"
+              Start="0,0"
+              End="-161.612107850747,35.1787873539184">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.2157812650172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.2157812650172"
+                    Point2="0,17.2157812650172"
+                    Point3="-4,17.2157812650172" />
+                  <mssgle:LineSegment
+                    End="-157.612107850747,17.2157812650172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-157.612107850747,17.2157812650172"
+                    Point2="-161.612107850747,17.2157812650172"
+                    Point3="-161.612107850747,21.2157812650172" />
+                  <mssgle:LineSegment
+                    End="-161.612107850747,35.1787873539184" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-128.997440644124,22.2157812650172,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Customer JSON.Paths[Lookup No Match Output]"
+          TopLeft="406.427258235894,614.842420790225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="180.348474885404,42.6121213441618"
+              Start="0,0"
+              End="180.348474885404,35.1121213441618">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3060606720809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3060606720809"
+                    Point2="0,21.3060606720809"
+                    Point3="4,21.3060606720809" />
+                  <mssgle:LineSegment
+                    End="176.348474885404,21.3060606720809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="176.348474885404,21.3060606720809"
+                    Point2="180.348474885404,21.3060606720809"
+                    Point3="180.348474885404,25.3060606720809" />
+                  <mssgle:LineSegment
+                    End="180.348474885404,35.1121213441618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="34.3678507239518,26.3060606720809,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Customer JSON\OLE DB Destination (Insert New Customer)">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
