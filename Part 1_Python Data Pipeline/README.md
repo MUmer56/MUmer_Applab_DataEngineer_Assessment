@@ -188,16 +188,16 @@ This ensures **auditability** and enables data quality monitoring.
 ## Raw Input Data
 Below is a sample of the original raw Sales JSON data loaded into the DataFrame:
 
-![Raw Data](Screenshots\Loaded_raw_data_sample.JPG)
+![Raw Data](Screenshots/Loaded_raw_data_sample.JPG)
 
 
 ### 3. ETL Log File Outputs
 Logs file capture ETL process execution, including data validation, cleansing, and incremental load steps:
 
-![ETL Log 1.0](Screenshots\Pipelines_logs_file_view_1.0.JPG)
-![ETL Log 1.1](Screenshots\Pipelines_logs_file_view_1.1.JPG)
-![ETL Log 1.2](Screenshots\Pipelines_logs_file_view_1.2.JPG)
-![ETL Log 1.3](Screenshots\Pipelines_logs_file_view_1.3_incremnetal_data_load.JPG)
+![ETL Log 1.0](Screenshots/Pipelines_logs_file_view_1.0.JPG)
+![ETL Log 1.1](Screenshots/Pipelines_logs_file_view_1.1.JPG)
+![ETL Log 1.2](Screenshots/Pipelines_logs_file_view_1.2.JPG)
+![ETL Log 1.3](Screenshots/Pipelines_logs_file_view_1.3_incremnetal_data_load.JPG)
 
 ### 4. Bad Data Logging Table
 Rows with missing, invalid, or duplicate values were logged into the `BadDataLog` table:
