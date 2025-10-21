@@ -241,7 +241,7 @@ WHERE customer_id = ?
 
 ---
 
-This completes the SSIS Customer JSON pipeline documentation. The pipeline is designed with scaling in mind: using SSIS variable for file path, Lookup and Conditional Split components minimize unnecessary database operations, and batch-friendly OLE DB Destinations ensure efficient inserts. For larger datasets, additional partitioning and parallel execution can be implemented to improve performance.
+- This completes the SSIS Customer JSON pipeline documentation. The pipeline is designed with scaling in mind: using SSIS variable for - file path, Lookup and Conditional Split components minimize unnecessary database operations, and batch-friendly OLE DB Destinations - ensure efficient inserts. For larger datasets, additional partitioning and parallel execution can be implemented to improve performance.
 ---
 
 
